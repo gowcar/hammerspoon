@@ -113,13 +113,13 @@ end)
 
 hs.hotkey.bind(hyper, "U", function()
   local win = hs.window.focusedWindow()
-  win:moveOneScreenWest(false, true, 0.2)
+  win:moveOneScreenWest(false, true, 0)
   frameCache[win:id()] = nil
 end)
 
 hs.hotkey.bind(hyper, "I", function()
   local win = hs.window.focusedWindow()
-  win:moveOneScreenEast(false, true, 0.2)
+  win:moveOneScreenEast(false, true, 0)
   frameCache[win:id()] = nil
 end)
 
