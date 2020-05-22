@@ -63,6 +63,14 @@ function zoomH(v)
       end
 end
 
+function bind(mod, key, msg, action_fn)
+  if showMessage then
+    hs.hotkey.bind(mod, key, msg, action_fn)
+  else
+    hs.hotkey.bind(mod, key, action_fn)
+  end
+end
+
 -------------以下是快捷键定义------------------
 -- 快捷打开
 -- ⌃⌥L: 进入屏幕保护
@@ -83,11 +91,11 @@ end
 -- ⌘⌃B: 切换上一个窗口
 -- ⌘⌃E: 平铺所有窗口，然后按快捷键立即跳入某个窗口
 
-hs.hotkey.bind(hyper, 'F', function() 
+bind(hyper, 'F', "全屏", function() 
   hs.window.focusedWindow():toggleFullScreen()
 end)
 
-hs.hotkey.bind(hyper, 'C', function() 
+bind(hyper, 'C', "窗口居中", function() 
     toggle_window(function() 
       local curWin = hs.window.focusedWindow()
       local curWinFrame = curWin:frame()
@@ -140,19 +148,19 @@ hs.hotkey.bind(hyper, "K", function()
   zoomH(1.25);
 end)
 
-hs.hotkey.bind(hyper, "N", function()
+hs.hotkey.bind({"cmd"}, "escape", function()
   hs.window.switcher.nextWindow()
   -- hs.window.focusWindowEast() 
   -- hs.grid.toggleShow()
   -- hs.window.highlight.toggleIsolate()
 end)
 
-hs.hotkey.bind(hyper, "B", function()
+hs.hotkey.bind({"cmd", "ctrl"}, "escape", "切换任务", function()
   hs.window.switcher.previousWindow()
 end)
 
 local switchers = {}
-hs.hotkey.bind(hyperAlt, "N", function()
+hs.hotkey.bind({"alt"}, "escape", function()
   local win = hs.window.focusedWindow():application():name()
   if not switchers[win] then
     switchers[win] = hs.window.switcher.new({win})
@@ -160,7 +168,7 @@ hs.hotkey.bind(hyperAlt, "N", function()
   switchers[win]:next()
 end)
 
-hs.hotkey.bind(hyperAlt, "B", function()
+hs.hotkey.bind({"alt", "ctrl"}, "escape", function()
   local win = hs.window.focusedWindow():application():name()
   if not switchers[win] then
     switchers[win] = hs.window.switcher.new({win})

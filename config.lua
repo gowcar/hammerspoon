@@ -2,6 +2,8 @@
 hyper = {"cmd", "ctrl"}
 hyperShift = {"cmd", "ctrl", "shift"}
 hyperAlt = {"alt", "ctrl"}
+showMessage = false
+
 -- switcher config
 hs.window.switcher.ui.fontName = 'Monaco'
 hs.window.switcher.ui.textSize = 16

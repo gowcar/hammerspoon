@@ -1,6 +1,6 @@
 require "config"
+require "modules/func"
 require "modules/toolbar"
 require "modules/expose"
 require "modules/reload"
-require "modules/system"
-require "modules/window"
+require "modules/shortcut"
