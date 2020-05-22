@@ -111,13 +111,13 @@ hs.hotkey.bind(hyper, 'M', function()
     toggle_window(function() hs.window.focusedWindow():maximize() end)
 end)
 
-hs.hotkey.bind(hyper, "U", function()
+hs.hotkey.bind(hyper, "I", function()
   local win = hs.window.focusedWindow()
   win:moveOneScreenWest(false, true, 0)
   frameCache[win:id()] = nil
 end)
 
-hs.hotkey.bind(hyper, "I", function()
+hs.hotkey.bind(hyper, "O", function()
   local win = hs.window.focusedWindow()
   win:moveOneScreenEast(false, true, 0)
   frameCache[win:id()] = nil
