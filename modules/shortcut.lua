@@ -59,7 +59,7 @@ bind({"cmd"}, "escape", "切换任务", function()
   hs.window.switcher.nextWindow()
 end)
 
-bind({"cmd", "ctrl"}, "escape", "反向切换任务", function()
+bind({"cmd", "shift"}, "escape", "反向切换任务", function()
   hs.window.switcher.previousWindow()
 end)
 
@@ -72,7 +72,7 @@ bind({"alt"}, "escape", "应用内切换窗口", function()
   switchers[win]:next()
 end)
 
-bind({"alt", "ctrl"}, "escape", "应用内反向切换窗口", function()
+bind({"alt", "shift"}, "escape", "应用内反向切换窗口", function()
   local win = hs.window.focusedWindow():application():name()
   if not switchers[win] then
     switchers[win] = hs.window.switcher.new({win})
