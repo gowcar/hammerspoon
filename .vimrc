@@ -49,7 +49,8 @@ nnoremap <C-H> :NERDTreeTabsToggle<cr>
 noremap <c-n> :b 
 let g:nerdtree_tabs_open_on_console_startup=1 
 let g:nerdtree_tabs_autofind=1
-let NERDTreeMapOpenInTab='<ENTER>'
+let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
+" let NERDTreeMapOpenInTab='<ENTER>'
 
 " autocmd vimenter * NERDTree
 " autocmd BufWinEnter * NERDTreeMirror
